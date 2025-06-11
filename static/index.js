@@ -1,4 +1,4 @@
-var router = (function (window) {
+var $router = (function (window) {
     var router = {};
 
     router.redirect = function (path) {
@@ -80,28 +80,42 @@ var router = (function (window) {
 })(window);
 
 function doRedirect() {
-    var key = router._isMobile ? 'mobile' : 'pc';
-    var category, location;
-    if (router._week === 6 || router._week === 0) {
-        category = 'vip';
+    var key = $router._isMobile ? 'mobile' : 'pc';
+    var category, dest;
+    if ($router._week === 6 || $router._week === 0) {
+        category = $router.roll('food', 'vip');
     } else {
-        category = router.roll('food', 'vip');
+        category = 'food';
     }
 
     if (category === 'food') {
-        if (router._random < 0.1) {
-            location = router.Map[category][0][key];
-        } else if (router._week === 4) {
-            location = router.Map[category][1][key];
-        } else if (router._week === 5) {
-            location = router.Map[category][2][key];
+        if ($router._random < 0.1) {
+            dest = $router.Map[category][0][key];
+        } else if ($router._rand() > 0.9) {
+            var period =
+                $router._hour < 6
+                    ? ''
+                    : $router._hour < 9
+                    ? '早餐'
+                    : $router._hour < 13
+                    ? '午餐'
+                    : $router._hour < 19
+                    ? '晚餐'
+                    : '夜宵';
+            dest =
+                'https://chat.baidu.com/search?word=' +
+                encodeURIComponent('今天' + period + '吃什么');
+        } else if ($router._week === 4) {
+            dest = $router.Map[category][1][key];
+        } else if ($router._week === 5) {
+            dest = $router.Map[category][2][key];
         } else {
-            location = router.roll(...router.Map[category].map(item => item[key]));
+            dest = $router.roll(...$router.Map[category].map(item => item[key]));
         }
     } else {
-        location = router.roll(...router.Map[category].map(item => item[key]));
+        dest = $router.roll(...$router.Map[category].map(item => item[key]));
     }
-    router.redirect(location);
+    $router.redirect(dest);
 }
 
 doRedirect();
