@@ -9,7 +9,7 @@ var $router = (function (window) {
         console.log('Redirect', path);
         setTimeout(() => {
             window.location.href = path;
-        }, 1000);
+        }, 500);
     };
     router.roll = function (...arr) {
         if (!Array.isArray(arr) || arr.length === 0) {
