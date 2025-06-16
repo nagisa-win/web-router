@@ -73,6 +73,18 @@ var $router = (function (window) {
                 mobile: 'https://www.pizzahut.com.cn/',
                 pc: 'https://www.pizzahut.com.cn/',
             },
+            {
+                mobile: 'https://www.yoshinoya.com/',
+                pc: 'https://www.yoshinoya.com/'
+            },
+            {
+                mobile: 'https://subway.com.cn/',
+                pc: 'https://subway.com.cn/'
+            },
+            {
+                mobile: 'https://m.dominos.com.cn/',
+                pc: 'https://www.dominos.com.cn/'
+            }
         ],
     };
 
