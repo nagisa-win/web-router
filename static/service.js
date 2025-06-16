@@ -1,4 +1,4 @@
-const $service = (function (window) {
+var $service = (function (window) {
     const services = {};
 
     services.storage = {

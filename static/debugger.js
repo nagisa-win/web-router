@@ -35,7 +35,8 @@
 
         // 如果调试器被打开，代码执行会暂停，时间差会比较大
         if (diff > 100) {
-            document.body.innerHTML = '<h1>检测到开发者工具喵！V我88！</h1><br><img style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;" src="/static/qrcode.svg">';
+            window.$detector.observer.disconnect()
+            document.body.innerHTML = '<main style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;"><h1>被我发现开启了开发者工具喵！V我88！</h1><br><img style="width:200px;" src="/static/qrcode.svg"></main>';
             alert('检测到开发者工具已打开！');
         }
     }
