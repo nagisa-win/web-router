@@ -9,9 +9,8 @@
                 // 检测新增节点
                 if (mutation.addedNodes.length > 0) {
                     console.warn('检测到可疑DOM注入:', mutation.addedNodes);
-                    alert('检测到dom注入喵！V我88！');
                     observer.disconnect();
-                    document.body.innerHTML = '<h1>检测到dom注入喵！V我88！</h1><br><img style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;" src="/static/qrcode.svg">';
+                    document.body.innerHTML = `<article style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;"><h1>检测到dom注入喵！V我88！</h1><br><img style="width:200px;" src="/static/qrcode.svg"></article>`;
                 }
             });
         });
