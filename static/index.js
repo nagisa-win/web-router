@@ -1,4 +1,4 @@
-const $router = (function (window) {
+var $router = (function (window) {
     const router = {};
 
     router.redirect = function (path) {
@@ -70,7 +70,7 @@ const $router = (function (window) {
                 pc: 'http://www.saizeriya.com.cn/',
             },
             {
-                mobile: 'https://www.pizzahut.com.cn/',
+                mobile: 'https://m.pizzahut.com.cn/',
                 pc: 'https://www.pizzahut.com.cn/',
             },
             {
