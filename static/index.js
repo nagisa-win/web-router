@@ -1,5 +1,5 @@
-var $router = (function (window) {
-    var router = {};
+const $router = (function (window) {
+    const router = {};
 
     router.redirect = function (path) {
         if (window.$stay) {
@@ -15,12 +15,12 @@ var $router = (function (window) {
         if (!Array.isArray(arr) || arr.length === 0) {
             return '';
         }
-        var randomIndex = Math.floor(Math.random() * arr.length);
+        const randomIndex = Math.floor(Math.random() * arr.length);
         return arr[randomIndex];
     };
 
     function _isMobile() {
-        var ua = window.navigator.userAgent || window.navigator.vendor || window.opera;
+        const ua = window.navigator.userAgent || window.navigator.vendor || window.opera;
         return !!(/android/i.test(ua) || /iPhone|iPad|iPod/i.test(ua) || /mobile/i.test(ua));
     }
 
@@ -75,16 +75,16 @@ var $router = (function (window) {
             },
             {
                 mobile: 'https://www.yoshinoya.com/',
-                pc: 'https://www.yoshinoya.com/'
+                pc: 'https://www.yoshinoya.com/',
             },
             {
                 mobile: 'https://subway.com.cn/',
-                pc: 'https://subway.com.cn/'
+                pc: 'https://subway.com.cn/',
             },
             {
                 mobile: 'https://m.dominos.com.cn/',
-                pc: 'https://www.dominos.com.cn/'
-            }
+                pc: 'https://www.dominos.com.cn/',
+            },
         ],
     };
 
@@ -92,8 +92,8 @@ var $router = (function (window) {
 })(window);
 
 function doRedirect() {
-    var key = $router._isMobile ? 'mobile' : 'pc';
-    var category, dest;
+    const key = $router._isMobile ? 'mobile' : 'pc';
+    let category, dest;
     if ($router._week === 6 || $router._week === 0) {
         category = $router.roll('food', 'vip');
     } else {
@@ -104,7 +104,7 @@ function doRedirect() {
         if ($router._random < 0.1) {
             dest = $router.Map[category][0][key];
         } else if ($router._rand() > 0.9) {
-            var period =
+            const period =
                 $router._hour < 6
                     ? ''
                     : $router._hour < 9
