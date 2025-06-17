@@ -30,16 +30,21 @@
                 notFoundPage: 'README.md',
             };
             // can you pass the right search query? :)
-            window.$stay =
-                new Function(
-                    'return ' +
-                        window.atob(
-                            ((new URLSearchParams(window.location.search).get('stay') || '').match(
-                                /^flag{([A-Za-z\d]+)}$/
-                            ) || {})[1] || ''
-                        )
-                )() ===
-                !!new Function('return [+!+[]]+[]')() + '';
+            var stay = (function () {
+                return (
+                    new Function(
+                        'return ' +
+                            window.atob(
+                                ((
+                                    new URLSearchParams(window.location.search).get('stay') || ''
+                                ).match(/^flag{([A-Za-z\d]{12})}$/) || {})[1] || ''
+                            )
+                    )() ===
+                    !!new Function('return [+!+[]]+[]')() + ''
+                );
+            })();
+            if (window.$stay === undefined) window.$stay = stay;
+            else window.$stay = !1;
         </script>
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     </body>
