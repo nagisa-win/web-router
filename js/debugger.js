@@ -5,19 +5,20 @@
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
         alert('右键菜单已被禁用');
+        console.warn('右键菜单已被禁用');
     });
     document.addEventListener('keydown', function (e) {
         // 禁用 F12
         if (e.key === 'F12') {
             e.preventDefault();
-            alert('F12 快捷键已被禁用');
+            console.warn('F12 快捷键已被禁用');
             return;
         }
 
         // 禁用 Ctrl+Shift+I
         if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey) {
             e.preventDefault();
-            alert('键盘快捷键已被禁用');
+            console.warn('键盘快捷键已被禁用');
             return;
         }
     });

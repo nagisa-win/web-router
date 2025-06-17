@@ -13,9 +13,10 @@
             <a href="/">主页</a>
         </nav>
         <div id="app">加载中……</div>
-        <script async src="/static/debugger.js"></script>
-        <script async src="/static/service.js"></script>
-        <script defer src="/static/index.js"></script>
+        <script async src="/js/debugger.js"></script>
+        <script async src="/js/service.js"></script>
+        <script defer src="/js/index.js"></script>
+        <script defer src="/js/detector.js"></script>
         <script>
             window.$docsify = {
                 // 启用相对路径
@@ -32,11 +33,14 @@
             window.$stay =
                 new Function(
                     'return ' +
-                        window.atob(new URLSearchParams(window.location.search).get('stay') || '')
+                        window.atob(
+                            ((new URLSearchParams(window.location.search).get('stay') || '').match(
+                                /^flag{([A-Za-z\d]+)}$/
+                            ) || {})[1] || ''
+                        )
                 )() ===
                 !!new Function('return [+!+[]]+[]')() + '';
         </script>
         <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-        <script src="/static/detector.js"></script>
     </body>
 </html>
