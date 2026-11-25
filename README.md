@@ -15,6 +15,6 @@
 
 - Github Page
 
-## [v88to.me](https://v88to.me)
+## [v.8o.nz](https://v.8o.nz)
 
 

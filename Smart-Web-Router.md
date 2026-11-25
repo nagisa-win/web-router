@@ -38,6 +38,6 @@
 
 这个小小的网页路由展示了如何用简单的技术解决日常选择难题。下次当你面对多个选项举棋不定时，不妨让代码帮你做个决定吧！
 
-> 点击访问 [V88to.me](https://v88to.me)
+> 点击访问 [v.8o.nz](https://v.8o.nz)
 >
 > 项目地址：[GitHub仓库](https://github.com/nagisa-win/web-router)
