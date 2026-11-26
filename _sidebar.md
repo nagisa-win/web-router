@@ -1,2 +1,2 @@
-- [V88to.me](/)
+- [v.8o.nz](/)
 - [Self Intro - v.8o.nz](Smart-Web-Router.md)
